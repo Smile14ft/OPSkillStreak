@@ -1,0 +1,81 @@
+# OPSkillStreak 1.1.0 - cooldowns are in seconds.
+# Colors use & codes. Change values, then run /opskill reload.
+
+# Skills are blocked in these worlds (world folder names).
+disabled-worlds: []
+
+cooldowns:
+  dash: 4
+  thunder: 12
+  shockwave: 8
+
+dash:
+  enabled: true
+  required-streak: 0
+  horizontal-power: 1.65
+  vertical-power: 0.32
+
+thunder:
+  enabled: true
+  required-streak: 0
+  range: 25.0
+  damage: 8.0
+  strike-lightning: true
+
+shockwave:
+  enabled: true
+  required-streak: 0
+  radius: 5.0
+  damage: 5.0
+  horizontal-knockback: 1.25
+  vertical-knockback: 0.45
+
+killstreak:
+  announce-from: 2        # broadcast every kill once the streak reaches this
+  announce-end-from: 3    # broadcast when a streak this long is ended
+
+anti-exploit:
+  # Killing the same player again within this many seconds does not count.
+  same-victim-cooldown: 60
+
+rewards:
+  enabled: true
+  kill:
+    xp: 10
+  # Extra rewards at exact streak numbers. %player% = the killer.
+  milestones:
+    5:
+      message: "&6Streak reward: golden apple!"
+      commands:
+        - "give %player% golden_apple 1"
+    10:
+      message: "&6Streak reward: diamonds!"
+      commands:
+        - "give %player% diamond 3"
+
+messages:
+  prefix: "&8[&6OPSkills&8] "
+  no-permission: "&cYou don't have permission."
+  player-only: "&cOnly players can use this command."
+  usage: "&eUsage: /skill <dash|thunder|shockwave>"
+  cooldown: "&cWait &e%seconds%s &cbefore using that skill again."
+  skill-disabled: "&cThat skill is disabled."
+  world-disabled: "&cSkills are disabled in this world."
+  skill-locked: "&cYou need a &e%required% &ckillstreak for that skill. Yours: &e%streak%"
+  dash: "&bDash!"
+  thunder-hit: "&eThunder Strike!"
+  thunder-no-target: "&cNo target found. Look at a living entity within range."
+  shockwave: "&dShockwave unleashed!"
+  stats: "&eStreak: &6%streak% &8| &eBest: &6%best% &8| &eKills: &6%kills% &8| &eDeaths: &6%deaths%"
+  streak-kill: "&6%player% &eis now on a &c%streak% &ekillstreak!"
+  streak-ended: "&c%player%'s &e%streak% &ckillstreak ended."
+  kill-not-counted: "&cThat kill did not count (same victim too soon)."
+  top-header: "&6&lTop Killstreaks"
+  top-line: "&6#%rank% &e%player% &8- &6%best% &7best &8(&e%kills% kills&8)"
+  top-empty: "&7No stats yet."
+  reload: "&aConfiguration reloaded."
+  admin-usage: "&eUsage: /opskill <reload|reset <player>|set <player> <number>|stats <player>>"
+  unknown-player: "&cNo stats found for that player."
+  admin-reset: "&aReset stats for &e%player%&a."
+  admin-set: "&aSet &e%player%&a's streak to &e%streak%&a."
+  invalid-number: "&cThat is not a valid number."
