@@ -1,0 +1,37 @@
+name: OPSkillStreak
+version: '${version}'
+main: me.opskillstreak.OPSkillStreak
+api-version: '1.21.11'
+description: Resource-pack-free killstreak and combat skills for Paper.
+author: Adiba
+
+commands:
+  skill:
+    description: Use a combat skill.
+    usage: /skill <dash|thunder|shockwave>
+    permission: opskillstreak.use
+  streak:
+    description: Show your killstreak and stats.
+    usage: /streak
+  streaktop:
+    description: Show the killstreak leaderboard.
+    usage: /streaktop
+    permission: opskillstreak.top
+  opskill:
+    description: OPSkillStreak admin commands.
+    usage: /opskill <reload|reset|set|stats>
+    permission: opskillstreak.admin
+
+permissions:
+  opskillstreak.use:
+    description: Allows using combat skills.
+    default: true
+  opskillstreak.top:
+    description: Allows viewing the leaderboard.
+    default: true
+  opskillstreak.admin:
+    description: Allows admin commands.
+    default: op
+  opskillstreak.bypass:
+    description: Ignore skill cooldowns and streak requirements.
+    default: false
